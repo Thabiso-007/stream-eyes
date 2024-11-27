@@ -9,10 +9,11 @@
   <div class="relative flex items-center justify-center h-full text-white">
     <div class="bg-white/50 w-[40%] h-[60%] rounded-lg shadow-lg p-8">
       <h1 class="text-2xl font-bold text-center mb-4">Stream eyes login</h1>
-      <form class="space-y-6">
+      <form class="space-y-6" (ngSubmit)="onLogin()">
         <div>
           <input
             type="email"
+            [(ngModel)]="email"
             id="email"
             class="w-full px-4 py-2 text-black border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="Enter your email"
@@ -21,6 +22,7 @@
         <div>
           <input
             type="password"
+            [(ngModel)]="password"
             id="password"
             class="w-full px-4 py-2 text-black border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="Enter your password"
@@ -29,6 +31,7 @@
         <div>
           <button
             type="submit"
+            [disabled]="isLoading"
             class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
           >
             Login
